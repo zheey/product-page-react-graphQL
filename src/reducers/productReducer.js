@@ -10,6 +10,13 @@ export const productReducer = (state, action) => {
       };
     }
 
+    case ProductConstants.TOGGLE_CART: {
+      return {
+        ...state,
+        showCart: !state.showCart
+      };
+    }
+
     default: {
       return state;
     }

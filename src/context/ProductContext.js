@@ -10,10 +10,10 @@ export const useProduct = () => {
 };
 
 export const ProductProvider = ({ children }) => {
-  const [cartState, dispatchProductActions] = useReducer(productReducer, productInitialState);
+  const [productState, dispatchProductActions] = useReducer(productReducer, productInitialState);
 
   const value = {
-    cartState,
+    productState,
     dispatchProductActions
   };
   return <ProductContext.Provider value={value}>{children}</ProductContext.Provider>;
