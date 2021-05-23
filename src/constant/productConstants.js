@@ -4,11 +4,14 @@ export const ProductConstants = {
     ADD_TO_CART: "ADD_TO_CART",
     REMOVE_FROM_CART: "REMOVE_FROM_CART",
     REDUCE_ITEM_COUNT: "REDUCE_ITEM_COUNT",
-    INCREASE_ITEM_COUNT: "INCREASE_ITEM_COUNT"
+    INCREASE_ITEM_COUNT: "INCREASE_ITEM_COUNT",
+    CHANGE_CURRENCY: "CHANGE_CURRENCY"
 };
 
 export const productInitialState = {
     products: [],
     showCart: false,
-    cart: []
+    cart: [],
+    selectedCurrency: "NGN",
+    isLoading: true
 };

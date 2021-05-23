@@ -3,41 +3,18 @@ import { formatAmount } from "../helpers/productHelpers";
 import { useProduct } from "../context/ProductContext";
 import { ProductConstants } from "../constant/productConstants";
 
-const CartItem = ({ item }) => {
-  /**
-     * count: 2
-id: 3
-image_url: "https://d1b929y2mmls08.cloudfront.net/luminskin/img/new-landing-page/moisturizing-balm.png"
-price: 10000
-product_options: Array(3)
-0:
-options: Array(5)
-0:
-value: "13-24"
-__typename: "ProductOptionValue"
-__proto__: Object
-1: {__typename: "ProductOptionValue", value: "25-34"}
-2: {__typename: "ProductOptionValue", value: "35-45"}
-3: {__typename: "ProductOptionValue", value: "46-55"}
-4: {__typename: "ProductOptionValue", value: "56+"}
-length: 5
-__proto__: Array(0)
-title: "Age Bracket"
-__typename: "ProductOption"
-__proto__: Object
-1: {__typename: "ProductOption", title: "Skin Type", options: Array(3)}
-2: {__typename: "ProductOption", title: "Frequency", options: Array(4)}
-length: 3
-__proto__: Array(0)
-title: "Premium-Grade Moisturizing Balm"
-__typename: "Product"
-     */
-  const { dispatchProductActions } = useProduct();
+const CartItem = ({ item }) => {  
+  const { dispatchProductActions, productState } = useProduct();
+
+  const cartItem = useMemo(() => {
+    const itemInProduct  = productState.products.find(product => product.id === item.id);
+    return itemInProduct;
+  }, [productState.products, item]);
 
   const totalPrice = useMemo(() => {
-    const total = item.price * item.count;
+    const total = cartItem.price * item.count;
     return total;
-  }, [item]);
+  }, [item, cartItem]);
 
   const removeItem = () => {
     dispatchProductActions({
@@ -66,7 +43,7 @@ __typename: "Product"
         <span className="remove-btn" onClick={removeItem}>
           x
         </span>
-        <h6>{item.title}</h6>
+        <h6>{cartItem.title}</h6>
         <div>Combination</div>
         <div>
           <span>One time purchase of </span>
@@ -75,15 +52,15 @@ __typename: "Product"
         </div>
         <div className="quantity">
           <div className="selector">
-            <span className="counter-action" onClick={decreaseItem}>-</span>
+            <span className="action" onClick={decreaseItem}>-</span>
             <span className="counter-number">{item.count}</span>
-            <span className="counter-action" onClick={increaseItem}>+</span>
+            <span className="action" onClick={increaseItem}>+</span>
           </div>
-          <div className="price">NGN&nbsp;{formatAmount(totalPrice)}</div>
+          <div className="price">{`${productState.selectedCurrency} ${productState.fetching ? "..." : formatAmount(totalPrice)}`}</div>
         </div>
       </div>
       <div className="product-image">
-        <img src={item.image_url} alt="product" />
+        <img src={cartItem.image_url} alt="product" />
       </div>
     </div>
   );

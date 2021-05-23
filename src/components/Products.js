@@ -1,18 +1,18 @@
-import React from "react";
+import React, { Suspense, lazy } from "react";
 import PageHeader from "../common/PageHeader";
-import PageContent from "../common/PageContent";
+const PageContent = lazy(() => import("../common/PageContent"));
 
 const Products = () => {
-//   if (loading) return <p>Loading...</p>;
-//   if (error) return <p>Error :(</p>;
-    return(
-        <div className="product-wrapper">
-            <div className="content-wrapper">
-                <PageHeader/>
-                <PageContent/>
-            </div>
-        </div>
-    )
+  return (
+    <div className="product-wrapper">
+      <div className="content-wrapper">
+        <PageHeader />
+        <Suspense fallback={<div>Loading...</div>}>
+          <PageContent />
+        </Suspense>
+      </div>
+    </div>
+  );
 };
 
 export default Products;

@@ -1,3 +1,7 @@
+@font-face {
+  font-family: 'FF Bau Regular';
+  src: url('../font/bau-regular_bigfontsite.com.ttf') format('truetype');
+}
 @mixin flex($display, $align, $justify) {
   display: $display;
   justify-content: $justify;
@@ -5,7 +9,7 @@
 }
 body {
   margin: 0;
-  font-family: "FF Bau Regular,san-serif";
+  font-family: FF Bau Regular, san-serif;
   font-weight: 400;
   font-size: 13px;
   background-color: #f5f5f4;
@@ -232,10 +236,12 @@ body {
               max-width: 100%;
               max-height: 170px;
               flex: 1 1 0%;
-              height: auto;
+              height: 80%;
+              width: 60%;
+              margin: auto;
             }
             h2 {
-              font-family: "FF Bau Regular", sans-serif;
+              font-family: FF Bau Regular, sans-serif;
               font-weight: 400;
               font-size: 0.8125rem;
               line-height: 1.7;
@@ -254,7 +260,7 @@ body {
           margin-left: 0rem;
         }
         .amount-wrapper p:first-child {
-          font-family: "FF Bau Regular", sans-serif;
+          font-family: FF Bau Regular, sans-serif;
           font-weight: 400;
           line-height: 1.7;
           margin-left: 0rem;
@@ -342,7 +348,7 @@ pre {
   line-height: 1.2;
   padding-top: 2px;
   font-weight: 600;
-  font-family: "FF Bau Regular", sans-serif;
+  font-family: FF Bau Regular, sans-serif;
   padding-left: 1rem;
   padding-right: 1rem;
   min-height: 52px;
@@ -426,7 +432,7 @@ pre {
       .cart-title {
         color: #696969;
         font-weight: 400;
-        font-family: FF Bau Medium;
+        font-family: FF Bau Regular;
         letter-spacing: 1px;
         font-style: normal;
         font-size: 10px;
@@ -434,6 +440,7 @@ pre {
         margin-bottom: 0;
         line-height: 1.2;
         text-transform: uppercase;
+        font-weight: 500;
       }
     }
   }
@@ -589,11 +596,12 @@ pre {
     border-top: none;
   }
   .price {
-    font-family: FF Bau Medium, san-serif;
+    font-family: FF Bau Regular, san-serif;
     flex-direction: column;
     align-items: flex-end;
     display: flex;
     height: 40px;
+    font-weight: 500;
   }
   .cart-buttons {
     flex-direction: column;
@@ -626,7 +634,48 @@ pre {
     }
   }
 }
-@media (min-width: 768) {
+@keyframes placeholderShimmer {
+  0% {
+    background-position: -468px 0;
+  }
+  
+  100% {
+    background-position: 468px 0; 
+  }
+}
+.empty-item{
+    background: #f6f7f8;
+    background-image: linear-gradient(to right, #f6f7f8 0%, #edeef1 20%, #f6f7f8 40%, #f6f7f8 100%);
+    background-repeat: no-repeat;
+    display: block!important;
+        position: relative; 
+    margin-bottom: 1rem;
+    -webkit-animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards; 
+  -webkit-animation-iteration-count: infinite;
+  -webkit-animation-name: placeholderShimmer;
+  -webkit-animation-timing-function: linear;
+}
+.height-180{
+  height: 180px;
+}
+.height-50{
+  height: 50px;
+}
+.height-30{
+  height: 30px;
+}
+.height-20{
+  height: 20px;
+}
+.empty{
+  text-align: center;
+}
+
+@media (max-width: 767px) {
+  .product-content-wrapper .wrapper .product .item{
+    width: 50% !important;
+  }
   // padding-left: 0rem;
   // padding-right: 0rem;
 }

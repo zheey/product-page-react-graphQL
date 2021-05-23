@@ -6,7 +6,9 @@ export const productReducer = (state, action) => {
     case ProductConstants.SET_PRODUCTS: {
       return {
         ...state,
-        products: payload.products
+        products: payload.products,
+        isLoading: false,
+        fetching: false
       };
     }
 
@@ -18,14 +20,14 @@ export const productReducer = (state, action) => {
     }
 
     case ProductConstants.ADD_TO_CART: {
-      const { product } = payload;
+      const { productId } = payload;
       let cart = state.cart;
-      const hasProduct = cart.find(item => item.id === product.id);
+      const hasProduct = cart.find(item => item.id === productId);
       if (hasProduct) {
         cart = cart.map(item => {
-          if (item.id === product.id) {
+          if (item.id === productId) {
             return {
-              ...item,
+              id: productId,
               count: item.count + 1
             };
           }
@@ -33,7 +35,7 @@ export const productReducer = (state, action) => {
         });
       } else {
         const newCartProduct = {
-          ...product,
+          id: productId,
           count: 1
         };
 
@@ -98,6 +100,16 @@ export const productReducer = (state, action) => {
         ...state,
         showCart: true,
         cart
+      };
+    }
+
+    case ProductConstants.CHANGE_CURRENCY: {
+      const { value } = payload;
+      return {
+        ...state,
+        showCart: true,
+        selectedCurrency: value,
+        fetching: true
       };
     }
 
