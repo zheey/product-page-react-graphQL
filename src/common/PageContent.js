@@ -4,7 +4,6 @@ import { useProduct } from "../context/ProductContext";
 
 const PageContent = () => {
     const { productState } = useProduct();
-    console.log(productState)
     const products = productState.products || [];
  return(
      <div className="product-content-wrapper">
@@ -12,7 +11,7 @@ const PageContent = () => {
             <div className="product">
                 {
                     products.map((product, index) => (
-                        <Product product={product} key={index}/>
+                        <Product product={product} key={product.id}/>
                     ))
                 }
              </div>

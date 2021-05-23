@@ -4,9 +4,11 @@ import { gql } from '@apollo/client';
 const GET_PRODUCTS = gql`
   query GetProducts {
     products{
-        image_url
-        price(currency: NGN)
-        title
+      id
+      image_url
+      price(currency: NGN)
+      title
+      product_options{title, options{value}}
     }
   }
 `;
