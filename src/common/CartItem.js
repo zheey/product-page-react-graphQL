@@ -38,9 +38,9 @@ const CartItem = ({ item }) => {
   };
 
   return (
-    <div className="cart-item">
+    <div className="cart-item" data-testid="cartList">
       <div className="product-description">
-        <span className="remove-btn" onClick={removeItem}>
+        <span className="remove-btn" onClick={removeItem} data-testid={`removeItem${item.id}`}>
           x
         </span>
         <h6>{cartItem.title}</h6>
@@ -52,9 +52,9 @@ const CartItem = ({ item }) => {
         </div>
         <div className="quantity">
           <div className="selector">
-            <span className="action" onClick={decreaseItem}>-</span>
-            <span className="counter-number">{item.count}</span>
-            <span className="action" onClick={increaseItem}>+</span>
+            <span className="action" onClick={decreaseItem} data-testid={`decrease${item.id}`}>-</span>
+            <span className="counter-number" data-testid="counter">{item.count}</span>
+            <span className="action" onClick={increaseItem} data-testid={`increase${item.id}`}>+</span>
           </div>
           <div className="price">{`${productState.selectedCurrency} ${productState.fetching ? "..." : formatAmount(totalPrice)}`}</div>
         </div>

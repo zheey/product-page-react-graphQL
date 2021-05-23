@@ -5,7 +5,8 @@ const Button = ({
   disabled,
   type = "button",
   className = "",
-  onClick
+  onClick,
+  dataTestid
 }) =>
   onClick ? (
     <button
@@ -13,6 +14,7 @@ const Button = ({
       type={type}
       disabled={disabled}
       onClick={() => onClick()}
+      data-testid={dataTestid}
     >
       {label}
     </button>

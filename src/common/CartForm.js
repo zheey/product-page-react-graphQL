@@ -13,7 +13,7 @@ const CartForm = () => {
     });
   };
   return (
-    <form className="cart-form-wrapper">
+    <form className="cart-form-wrapper" data-testid="cart">
       <div className="in-cart-overlay"></div>
       <div className="cart-top">
         <div className="back">
@@ -34,7 +34,7 @@ const CartForm = () => {
             ? productState.cart.map(item => (
                 <CartItem item={item} key={item.id} />
               ))
-            : <p className="empty">There are no items in your cart.</p>}
+            : <p className="empty" data-testid="empty">There are no items in your cart.</p>}
         </div>
       </div>
       <CartFooter />

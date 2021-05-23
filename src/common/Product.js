@@ -15,7 +15,7 @@ const Product = ({ product }) => {
   };
 
   return (
-    <div className="item">
+    <div className="item" data-testid="products">
         {product ? (
           <div className="item-wrapper">
             <div className="item-wrapper-wrapper">
@@ -30,7 +30,7 @@ const Product = ({ product }) => {
                 productState.fetching ? "..." : formatAmount(product.price)
               }`}</p>
             </div>
-            <Button label="Add to Cart" onClick={addProduct} />
+            <Button label="Add to Cart" onClick={addProduct} dataTestid={`addToCart${product.id}`}/>
             </div>
         ) : (
           <>

@@ -7,7 +7,7 @@ const Products = () => {
     <div className="product-wrapper">
       <div className="content-wrapper">
         <PageHeader />
-        <Suspense fallback={<div>Loading...</div>}>
+        <Suspense fallback={<div data-testid="loader">Loading...</div>}>
           <PageContent />
         </Suspense>
       </div>

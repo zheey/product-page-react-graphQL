@@ -11,9 +11,9 @@ const PageContent = () => {
         <div className="product">
           {productState.isLoading ?
             <>
-            <Product/>
-            <Product/>
-            <Product/>
+            <Product data-testid="loaders-shimmer"/>
+            <Product data-testid="loaders-shimmer"/>
+            <Product data-testid="loaders-shimmer"/>
             </>
             :
             products.map((product, index) => (
