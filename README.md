@@ -1,4 +1,4 @@
-# Getting Started with Calendar Call Scheduler
+# Getting Started with Product Page
 
 ## About Project
 
