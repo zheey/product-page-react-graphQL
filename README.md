@@ -1,8 +1,61 @@
-# Getting Started with Create React App
+# Getting Started with Calendar Call Scheduler
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## About Project
 
-## Available Scripts
+This is a web application feature that allows you add products to cart, remove from cart and increament them cart items. It also display product prices based on user selected currency.
+This feature is a replica of luminskin product page. 
+
+This project is made up of several ReactJS functional components integrated together to become a whole feature.
+It was built as functional component for separation of functionalities, reusablity and scalability. Also for easy readability.
+
+## Project Components
+
+### React Functional Components
+These component handle the views and UI logic of the project. In this project a `React.Context` and `useReducer` are used to create a shared state within the project.
+
+#### Products Component
+This holds the products that are fetched from a GraphQL API using useQuery an Apollo client.
+
+#### Cart Component
+This is used to hold the products the user is interested in buying. Products can be
+
+#### Common Components
+This contains smaller components that are put together to make a whole component.
+
+### React Context
+This was used to share states between different components.
+
+### React Reducer
+React hooks `useReducer` was used to dispatch most actions and update the state.
+
+### Helper Methods
+This was used to abstract some data in the UI Logic.
+
+### Services
+This was created to make API calls to the backend and retrieve data for the application usage.
+
+### StyleSheets
+`SASS` was used to style the component. The decision was because of its nested syntax, and offer for reusability.
+
+### Testing
+Test was created for the app specification
+
+## Installation
+### `Clone Repository`:
+This project can only be run on a local machine for now. Kindly clone this repository.
+
+### `Install Dependency`:
+Run `yarn` to install all dependencies.
+
+## Library Used
+### `ReactJS`
+### `GraphQL`
+### `Apollo Client`
+### `SASS`
+### `Jest` and `React Testing Library` for testing
+
+## Improvements
+This application was built in a short time and there are some modifications that would be done to improve it continually.
 
 In the project directory, you can run:
 
@@ -28,43 +81,3 @@ The build is minified and the filenames include the hashes.\
 Your app is ready to be deployed!
 
 See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `yarn eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `yarn build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
